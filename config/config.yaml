@@ -1,0 +1,133 @@
+# Deep Hybrid Fusion Configuration
+
+# Model Architecture
+model:
+  text_dim: 768  # BERT embedding dimension
+  image_dim: 2048  # ResNet/MultiNet-101 dimension
+  audio_dim: 40  # MFCC features dimension
+  
+  # Encoder dimensions
+  encoder_hidden_dim: 256
+  encoder_dropout: 0.2
+  
+  # Fusion dimension
+  fusion_dim: 512
+  num_fusion_layers: 3
+  
+  # Decoder
+  decoder_hidden_dim: 128
+  output_dim: 2  # Binary classification (positive/negative)
+  
+  # Attention
+  num_attention_heads: 8
+  attention_dropout: 0.1
+  
+  # Loss weights
+  lambda_sim: 0.1  # Similarity loss weight
+  lambda_diff: 0.1  # Difference loss weight
+
+# Dataset Configuration
+dataset:
+  name: "MOSI"  # MOSI, MOSEI, IEMOCAP, MELD, MUStARD
+  root_dir: "./data"
+  download: true
+  num_workers: 4
+  batch_size: 32
+  
+  # Train-Val-Test split
+  train_split: 0.7
+  val_split: 0.1
+  test_split: 0.2
+
+# Text Feature Extraction
+text_extraction:
+  model_name: "bert-base-uncased"  # or "bert-base-cased"
+  max_length: 128
+  use_pretrained: true
+  freeze_bert: false  # Fine-tune BERT
+
+# Image Feature Extraction
+image_extraction:
+  use_hog: true
+  use_multiNet101: true
+  image_size: 224
+  # HOG parameters
+  hog_orientations: 9
+  hog_pixels_per_cell: 8
+  hog_cells_per_block: 2
+
+# Audio Feature Extraction
+audio_extraction:
+  use_lpcc: true
+  use_mfcc: true
+  sample_rate: 16000
+  n_mfcc: 13
+  n_fft: 2048
+  hop_length: 512
+  window: "hann"
+
+# Training Configuration
+training:
+  epochs: 50
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  optimizer: "adam"  # adam, sgd
+  scheduler: "cosine"  # cosine, linear, step
+  gradient_clip: 1.0
+  
+  # Early stopping
+  early_stopping: true
+  patience: 10
+  min_delta: 0.0001
+  
+  # Mixed precision
+  use_amp: true
+  
+  # Device
+  device: "cuda"  # cuda or cpu
+  seed: 42
+
+# Evaluation
+evaluation:
+  metrics:
+    - "accuracy"
+    - "f1"
+    - "precision"
+    - "recall"
+  average_type: "weighted"  # binary, micro, macro, weighted
+
+# Logging
+logging:
+  log_dir: "./outputs/logs"
+  save_interval: 10
+  eval_interval: 1
+  tensorboard: true
+
+# Checkpointing
+checkpoint:
+  save_dir: "./models"
+  save_best: true
+  keep_last_k: 3
+## Configuration Parameters
+
+### Stage 1: Text Feature Extraction
+- BERT model selection
+- Maximum token length
+- Output dimension (768)
+
+### Stage 2: Image Feature Processing  
+- HOG cell sizes and blocks
+- ResNet-101 backbone
+- Output dimension (2048)
+
+### Stage 3: Audio Feature Analysis
+- LPCC order and coefficients
+- MFCC n_mfcc settings
+- Sample rate standards
+
+# Configuration Parameters Documentation
+# Stage 1: Text Feature Extraction settings
+# - BERT model: bert-base-uncased or bert-large-uncased  
+# - Max token length: 128
+# - Output dimension: 768
+
