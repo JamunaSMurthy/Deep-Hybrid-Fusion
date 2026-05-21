@@ -524,8 +524,7 @@ Evaluation on standard multimodal sentiment analysis datasets:
 ## References
 
 **Primary Publication:**
-Murthy, J. S., & Siddesh, G. M. (2025). Multimedia video analytics using deep hybrid fusion algorithm. *Multimedia Tools and Applications*, 84(14), 14167–14185. Springer. https://doi.org/10.1007/s11042-024-XXXXX
-
+Murthy, J. S., & Siddesh, G. M. (2025). Multimedia video analytics using deep hybrid fusion algorithm. *Multimedia Tools and Applications*, 84(14), 14167–14185. Springer. 
 **Related Research:**
 - Vaswani, A., et al. (2017). Attention is all you need. *Advances in Neural Information Processing Systems* (NeurIPS)
 - Devlin, J., et al. (2019). BERT: Pre-training of deep bidirectional transformers for language understanding. *ACL*
