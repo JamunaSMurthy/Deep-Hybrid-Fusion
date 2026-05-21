@@ -9,8 +9,7 @@ A complete, production-ready implementation of the Deep Hybrid Fusion model for 
 This implementation is based on the following peer-reviewed publication:
 
 > **Murthy, J. S., & Siddesh, G. M. (2025).** Multimedia video analytics using deep hybrid fusion algorithm. *Multimedia Tools and Applications*, 84(14), 14167–14185. Springer.
-> 
-> **DOI**: 10.1007/s11042-024-XXXXX  
+>  
 > **Journal**: Multimedia Tools and Applications (Springer)  
 > **Impact Factor**: 2.757 (2024)
 
