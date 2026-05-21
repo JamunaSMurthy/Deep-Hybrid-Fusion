@@ -15,7 +15,7 @@ This implementation is based on the following peer-reviewed publication:
 > **Impact Factor**: 2.757 (2024)
 
 **Authors**: Jamuna S. Murthy, G. M. Siddesh  
-**Institution**: PESIT South Campus, Bangalore, India
+**Institution**: Ramaiah Institute of Technology
 
 ### Citation
 
